@@ -179,7 +179,7 @@ public class BuildTests extends OpenSearchTestCase {
         );
         assertNotEquals(build, differentSnapshot);
 
-        Build differentVersion = new Build(build.type(), build.hash(), build.date(), build.isSnapshot(), "1.2.3", build.getDistribution());
+        Build differentVersion = new Build(build.type(), build.hash(), build.date(), build.isSnapshot(), "0.1.2", build.getDistribution());
         assertNotEquals(build, differentVersion);
     }
 
@@ -301,9 +301,7 @@ public class BuildTests extends OpenSearchTestCase {
 
         final List<Version> versions = Version.getDeclaredVersions(LegacyESVersion.class);
         final Version post63Pre67Version = randomFrom(
-            versions.stream()
-                .filter(v -> v.onOrAfter(LegacyESVersion.V_6_3_0) && v.before(LegacyESVersion.V_6_7_0))
-                .collect(Collectors.toList())
+            versions.stream().filter(v -> v.before(LegacyESVersion.V_6_7_0)).collect(Collectors.toList())
         );
         final Version post67Pre70Version = randomFrom(
             versions.stream()
