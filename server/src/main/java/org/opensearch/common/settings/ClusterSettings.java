@@ -49,7 +49,6 @@ import org.opensearch.action.support.DestructiveOperations;
 import org.opensearch.action.support.replication.TransportReplicationAction;
 import org.opensearch.bootstrap.BootstrapSettings;
 import org.opensearch.client.Client;
-import org.opensearch.client.transport.TransportClient;
 import org.opensearch.cluster.ClusterModule;
 import org.opensearch.cluster.ClusterName;
 import org.opensearch.cluster.InternalClusterInfoService;
@@ -217,10 +216,6 @@ public final class ClusterSettings extends AbstractScopedSettings {
         new HashSet<>(
             Arrays.asList(
                 AwarenessAllocationDecider.CLUSTER_ROUTING_ALLOCATION_AWARENESS_ATTRIBUTE_SETTING,
-                TransportClient.CLIENT_TRANSPORT_NODES_SAMPLER_INTERVAL,
-                TransportClient.CLIENT_TRANSPORT_PING_TIMEOUT,
-                TransportClient.CLIENT_TRANSPORT_IGNORE_CLUSTER_NAME,
-                TransportClient.CLIENT_TRANSPORT_SNIFF,
                 AwarenessAllocationDecider.CLUSTER_ROUTING_ALLOCATION_AWARENESS_FORCE_GROUP_SETTING,
                 BalancedShardsAllocator.INDEX_BALANCE_FACTOR_SETTING,
                 BalancedShardsAllocator.SHARD_BALANCE_FACTOR_SETTING,
@@ -344,23 +339,16 @@ public final class ClusterSettings extends AbstractScopedSettings {
                 TransportSearchAction.SHARD_COUNT_LIMIT_SETTING,
                 TransportSearchAction.SEARCH_CANCEL_AFTER_TIME_INTERVAL_SETTING,
                 RemoteClusterService.REMOTE_CLUSTER_SKIP_UNAVAILABLE,
-                RemoteClusterService.SEARCH_REMOTE_CLUSTER_SKIP_UNAVAILABLE,
                 SniffConnectionStrategy.REMOTE_CONNECTIONS_PER_CLUSTER,
                 RemoteClusterService.REMOTE_INITIAL_CONNECTION_TIMEOUT_SETTING,
-                RemoteClusterService.SEARCH_REMOTE_INITIAL_CONNECTION_TIMEOUT_SETTING,
                 RemoteClusterService.REMOTE_NODE_ATTRIBUTE,
-                RemoteClusterService.SEARCH_REMOTE_NODE_ATTRIBUTE,
                 RemoteClusterService.ENABLE_REMOTE_CLUSTERS,
-                RemoteClusterService.SEARCH_ENABLE_REMOTE_CLUSTERS,
                 RemoteClusterService.REMOTE_CLUSTER_PING_SCHEDULE,
                 RemoteClusterService.REMOTE_CLUSTER_COMPRESS,
                 RemoteConnectionStrategy.REMOTE_CONNECTION_MODE,
                 ProxyConnectionStrategy.PROXY_ADDRESS,
                 ProxyConnectionStrategy.REMOTE_SOCKET_CONNECTIONS,
                 ProxyConnectionStrategy.SERVER_NAME,
-                SniffConnectionStrategy.SEARCH_REMOTE_CLUSTERS_SEEDS,
-                SniffConnectionStrategy.SEARCH_REMOTE_CLUSTERS_PROXY,
-                SniffConnectionStrategy.SEARCH_REMOTE_CONNECTIONS_PER_CLUSTER,
                 ProxyConnectionStrategy.SERVER_NAME,
                 SniffConnectionStrategy.REMOTE_CLUSTERS_PROXY,
                 SniffConnectionStrategy.REMOTE_CLUSTER_SEEDS,
@@ -582,12 +570,6 @@ public final class ClusterSettings extends AbstractScopedSettings {
         )
     );
 
-    public static List<SettingUpgrader<?>> BUILT_IN_SETTING_UPGRADERS = Collections.unmodifiableList(
-        Arrays.asList(
-            SniffConnectionStrategy.SEARCH_REMOTE_CLUSTER_SEEDS_UPGRADER,
-            SniffConnectionStrategy.SEARCH_REMOTE_CLUSTERS_PROXY_UPGRADER,
-            RemoteClusterService.SEARCH_REMOTE_CLUSTER_SKIP_UNAVAILABLE_UPGRADER
-        )
-    );
+    public static List<SettingUpgrader<?>> BUILT_IN_SETTING_UPGRADERS = Collections.emptyList();
 
 }

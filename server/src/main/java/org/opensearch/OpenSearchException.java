@@ -1537,31 +1537,31 @@ public class OpenSearchException extends RuntimeException implements ToXContentF
             org.opensearch.snapshots.SnapshotInProgressException.class,
             org.opensearch.snapshots.SnapshotInProgressException::new,
             151,
-            LegacyESVersion.V_6_7_0
+            UNKNOWN_VERSION_ADDED
         ),
         NO_SUCH_REMOTE_CLUSTER_EXCEPTION(
             org.opensearch.transport.NoSuchRemoteClusterException.class,
             org.opensearch.transport.NoSuchRemoteClusterException::new,
             152,
-            LegacyESVersion.V_6_7_0
+            UNKNOWN_VERSION_ADDED
         ),
         RETENTION_LEASE_ALREADY_EXISTS_EXCEPTION(
             org.opensearch.index.seqno.RetentionLeaseAlreadyExistsException.class,
             org.opensearch.index.seqno.RetentionLeaseAlreadyExistsException::new,
             153,
-            LegacyESVersion.V_6_7_0
+            UNKNOWN_VERSION_ADDED
         ),
         RETENTION_LEASE_NOT_FOUND_EXCEPTION(
             org.opensearch.index.seqno.RetentionLeaseNotFoundException.class,
             org.opensearch.index.seqno.RetentionLeaseNotFoundException::new,
             154,
-            LegacyESVersion.V_6_7_0
+            UNKNOWN_VERSION_ADDED
         ),
         SHARD_NOT_IN_PRIMARY_MODE_EXCEPTION(
             org.opensearch.index.shard.ShardNotInPrimaryModeException.class,
             org.opensearch.index.shard.ShardNotInPrimaryModeException::new,
             155,
-            LegacyESVersion.V_6_8_1
+            UNKNOWN_VERSION_ADDED
         ),
         RETENTION_LEASE_INVALID_RETAINING_SEQUENCE_NUMBER_EXCEPTION(
             org.opensearch.index.seqno.RetentionLeaseInvalidRetainingSeqNoException.class,
